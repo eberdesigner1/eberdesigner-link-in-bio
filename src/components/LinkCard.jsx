@@ -1,9 +1,22 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import * as LucideIcons from 'lucide-react';
 
-export default function LinkCard({ title, description, iconName, url, delay }) {
+export default function LinkCard({ title, description, iconName, url, delay, onClick }) {
   const cardRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    if (url && (url.startsWith('#') || url.startsWith('/'))) {
+      e.preventDefault();
+      if (onClick) {
+        onClick(url);
+      } else {
+        navigate(url);
+      }
+    }
+  };
 
   // Capture mouse coordinates relative to the card for the shiny overlay effect
   const handleMouseMove = (e) => {
@@ -45,6 +58,7 @@ export default function LinkCard({ title, description, iconName, url, delay }) {
       rel="noopener noreferrer"
       className="link-card"
       onMouseMove={handleMouseMove}
+      onClick={handleClick}
       initial={{ y: 30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, delay }}

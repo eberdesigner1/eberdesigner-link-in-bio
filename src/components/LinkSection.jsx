@@ -14,7 +14,7 @@ const linksData = [
     title: 'Meu Site / Portfólio',
     description: 'Conheça meus trabalhos.',
     iconName: 'Globe',
-    url: '#', // Easily editable field
+    url: '/portfolio', // Easily editable field
   },
   {
     id: 3,
