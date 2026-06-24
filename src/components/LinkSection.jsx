@@ -6,7 +6,7 @@ const linksData = [
     id: 1,
     title: 'Solicitar Orçamento',
     description: 'Vamos conversar sobre seu projeto.',
-    iconName: 'ArrowUpRight',
+    iconName: 'WhatsApp',
     url: 'https://wa.me/5521993340264',
   },
   {
