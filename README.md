@@ -1,16 +1,49 @@
-# React + Vite
+<p align="center">
+  <img src="src/assets/logo.jpg" alt="Eber Designer Logo" width="120" style="border-radius: 24px; box-shadow: 0 8px 32px rgba(255, 107, 0, 0.2);" />
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+<h1 align="center">Eber Designer — Link in Bio</h1>
 
-Currently, two official plugins are available:
+<p align="center">
+  Uma página de links premium, minimalista, moderna e futurista criada para destacar as soluções visuais de design gráfico e web.
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<p align="center">
+  <a href="https://github.com/eberdesigner1/eberdesigner-link-in-bio">
+    <img src="https://img.shields.io/badge/Status-Conclu%C3%ADdo-brightgreen?style=flat-square&color=FF6B00" alt="Status" />
+  </a>
+</p>
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ⚡ Recursos Premium
 
-## Expanding the Oxlint configuration
+* **Interactive Grid & Spotlight**: Grade e foco de luz (spotlight) que reagem dinamicamente à movimentação do mouse.
+* **SaaS Hover Card**: Cards de links que projetam um reflexo de luz interna (*sheen*) acompanhando o cursor.
+* **Estética Cyber-Minimalista**: Fundo escuro profundo com destaque em laranja vibrante (`#FF6B00`).
+* **Animações Fluidas**: Carregamento de componentes animado de forma sutil através do Framer Motion.
+* **Leve e Otimizado**: Carregamento em menos de 1 segundo graças ao Vite e assets comprimidos.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🛠️ Tecnologias Utilizadas
+
+* **React** + **Vite**
+* **Framer Motion** (Animações e interações)
+* **Lucide React** (Pacote de ícones minimalistas)
+* **Vanilla CSS** (Estilização pura e otimização de renderização a 60fps)
+
+## 🚀 Como rodar o projeto localmente
+
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+2. Inicie o servidor local:
+   ```bash
+   npm run dev
+   ```
+
+3. Faça a compilação para produção:
+   ```bash
+   npm run build
+   ```
