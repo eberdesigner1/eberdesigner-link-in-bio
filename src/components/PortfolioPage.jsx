@@ -38,7 +38,7 @@ import agro6 from '../assets/agronegocio/arte-agronegócio-6.webp';
 import agro7 from '../assets/agronegocio/arte-agronegócio-7.webp';
 import agro8 from '../assets/agronegocio/arte-agronegócio-8.webp';
 import agro9 from '../assets/agronegocio/arte-agronegócio-9.webp';
-import agroCover from '../assets/agronegocio/capa-agronegócio.png';
+import agroCover from '../assets/agronegocio/capa-agronegócio.webp';
 
 // Unified 6 Projects Data (3 Social Media, 3 Web Design)
 const projectsData = [
