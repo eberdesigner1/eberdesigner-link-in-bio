@@ -228,7 +228,7 @@ export default function PortfolioPage() {
           variants={fadeInUpVariants}
         >
           <h1 className="portfolio-main-title text-glow gradient-text">Portfólio</h1>
-          <p className="portfolio-main-subtitle">Soluções estéticas de Social Media e Desenvolvimento Web.</p>
+          <p className="portfolio-main-subtitle">Design para Redes Sociais e Desenvolvimento de Sites.</p>
         </motion.div>
 
         {/* Filter Navigation Tabs */}
