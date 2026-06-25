@@ -62,11 +62,8 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
       >
-        {specialties.map((spec, idx) => (
-          <React.Fragment key={spec}>
-            <span className="specialty-item">{spec}</span>
-            {idx < specialties.length - 1 && <span className="specialty-separator">•</span>}
-          </React.Fragment>
+        {specialties.map((spec) => (
+          <span key={spec} className="specialty-item">{spec}</span>
         ))}
       </motion.div>
     </div>

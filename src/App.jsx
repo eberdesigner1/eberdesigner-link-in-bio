@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import LinkSection from './components/LinkSection';
 import Footer from './components/Footer';
 import PortfolioPage from './components/PortfolioPage';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 // Home view wrapper with narrow constraint (580px max-width)
 function HomeView() {
@@ -60,6 +61,9 @@ export default function App() {
           <Route path="/portfolio" element={<PortfolioView />} />
         </Routes>
       </main>
+
+      {/* Global Floating WhatsApp button */}
+      <FloatingWhatsApp />
     </Router>
   );
 }
