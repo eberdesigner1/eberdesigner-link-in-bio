@@ -52,7 +52,7 @@ export default function Hero() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        Criação de sites, social media e design estratégico para destacar sua empresa.
+        Sites, landing pages e criativos para empresas que precisam transmitir confiança e gerar mais contatos.
       </motion.p>
 
       {/* Specialty Static List */}
