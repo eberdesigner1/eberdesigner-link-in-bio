@@ -196,7 +196,6 @@ export default function PortfolioPage() {
           {/* Left - Horizontal Logo */}
           <Link to="/" className="horizontal-logo-link">
             <img src={logoImg} alt="Eber Designer" className="horizontal-logo-img" />
-            <span className="horizontal-logo-text">Eber Designer</span>
           </Link>
 
           {/* Right - Menu Items */}
