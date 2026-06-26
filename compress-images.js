@@ -56,8 +56,8 @@ async function compressAll() {
       let pipeline = image;
       let resized = false;
 
-      // Resize if dimensions are too large (e.g. wider than 1600px for covers, or 1000px for grid arts)
-      const maxWidth = isCover ? 1600 : 1000;
+      // Resize if dimensions are too large (e.g. wider than 1200px for covers, or 1000px for grid arts)
+      const maxWidth = isCover ? 1200 : 1000;
       if (metadata.width && metadata.width > maxWidth) {
         pipeline = pipeline.resize({ width: maxWidth, withoutEnlargement: true });
         resized = true;
