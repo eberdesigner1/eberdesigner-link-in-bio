@@ -22,7 +22,7 @@ export default function Hero() {
         transition={{ type: "spring", stiffness: 100, delay: 0.1 }}
       >
         <div className="avatar-glow" />
-        <img src={logoImg} alt="Eber Designer Logo" className="avatar-img" fetchPriority="high" />
+        <img src={logoImg} alt="Eber Designer Logo" className="avatar-img" fetchPriority="high" width="110" height="110" />
       </motion.div>
 
       {/* Name Title */}

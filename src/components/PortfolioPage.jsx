@@ -199,7 +199,7 @@ export default function PortfolioPage() {
         <div className="nav-header-content">
           {/* Left - Horizontal Logo */}
           <Link to="/" className="horizontal-logo-link">
-            <img src={logoImg} alt="Eber Designer" className="horizontal-logo-img" />
+            <img src={logoImg} alt="Eber Designer" className="horizontal-logo-img" width="195" height="36" />
           </Link>
 
           {/* Right - Menu Items */}
