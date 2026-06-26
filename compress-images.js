@@ -93,7 +93,7 @@ async function compressAll() {
       if (isCover) {
         try {
           const mobilePath = file.replace(/\.webp$/i, '-mobile.webp');
-          const mobilePipeline = sharp(inputBuffer).resize({ width: 600, withoutEnlargement: true });
+          const mobilePipeline = sharp(inputBuffer).resize({ width: 480, withoutEnlargement: true });
           const mobileBuffer = await mobilePipeline.webp({ quality: 75, effort: 5 }).toBuffer();
           fs.writeFileSync(mobilePath, mobileBuffer);
           const mobileStats = fs.statSync(mobilePath);
