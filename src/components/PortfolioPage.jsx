@@ -293,7 +293,7 @@ export default function PortfolioPage() {
                         alt={project.name} 
                         className="project-card-cover-image"
                         loading={index === 0 ? "eager" : "lazy"}
-                        fetchpriority={index === 0 ? "high" : "auto"}
+                        fetchPriority={index === 0 ? "high" : "auto"}
                       />
                     ) : (
                       <>
