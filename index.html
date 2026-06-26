@@ -2,8 +2,11 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.jpg" />
+    <link rel="apple-touch-icon" href="/favicon.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="https://eberdesigner.com.br" />
     
     <!-- SEO Meta Tags -->
     <title>Eber Designer | Designer Gráfico & Web Designer</title>
@@ -15,17 +18,23 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Eber Designer | Designer Gráfico & Web Designer" />
     <meta property="og:description" content="Criação de sites modernos, criativos para redes sociais, carrosséis profissionais e soluções visuais que ajudam empresas a se destacarem." />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://eberdesigner.com.br" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Eber Designer | Designer Gráfico & Web Designer" />
     <meta property="twitter:description" content="Criação de sites modernos, criativos para redes sociais, carrosséis profissionais e soluções visuais que ajudam empresas a se destacarem." />
+    <meta property="twitter:image" content="/og-image.png" />
 
-    <!-- Google Fonts: Plus Jakarta Sans -->
+    <!-- Google Fonts: Plus Jakarta Sans (Asynchronous optimization) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>

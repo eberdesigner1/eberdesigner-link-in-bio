@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eberdesigner.com.br/sitemap.xml

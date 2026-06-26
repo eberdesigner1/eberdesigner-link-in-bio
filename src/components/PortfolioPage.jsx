@@ -292,6 +292,8 @@ export default function PortfolioPage() {
                         src={project.coverImage} 
                         alt={project.name} 
                         className="project-card-cover-image"
+                        loading={index === 0 ? "eager" : "lazy"}
+                        fetchpriority={index === 0 ? "high" : "auto"}
                       />
                     ) : (
                       <>
@@ -568,6 +570,7 @@ export default function PortfolioPage() {
               src={zoomedImage}
               alt="Arte ampliada"
               className="zoomed-image-display"
+              loading="lazy"
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
