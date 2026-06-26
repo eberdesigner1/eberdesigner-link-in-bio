@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, Globe, ExternalLink, X } from 'lucide-react';
-import logoImg from '../assets/logo.jpg';
+import logoImg from '../assets/logo-eber-header.svg';
 
 // Import Petshop 3x3 Grid WebP images
 import pet1 from '../assets/petshop/arte-petshop-1.webp';

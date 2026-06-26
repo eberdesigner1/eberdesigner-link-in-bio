@@ -583,9 +583,7 @@ html, body {
 .horizontal-logo-img {
   width: 32px;
   height: 32px;
-  border-radius: 8px;
-  object-fit: cover;
-  border: 1.5px solid rgba(255, 107, 0, 0.3);
+  object-fit: contain;
 }
 
 .horizontal-logo-text {
