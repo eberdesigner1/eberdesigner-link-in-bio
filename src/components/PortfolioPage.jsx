@@ -15,6 +15,7 @@ import pet7 from '../assets/petshop/arte-petshop-7.webp';
 import pet8 from '../assets/petshop/arte-petshop-8.webp';
 import pet9 from '../assets/petshop/arte-petshop-9.webp';
 import petCover from '../assets/petshop/capa-projeto-petshop.webp';
+import petCoverMobile from '../assets/petshop/capa-projeto-petshop-mobile.webp';
 
 // Import Mountain Bike 3x3 Grid WebP images
 import mtb1 from '../assets/mountain-bike/arte-mountainbike-1.webp';
@@ -27,6 +28,7 @@ import mtb7 from '../assets/mountain-bike/arte-mountainbike-7.webp';
 import mtb8 from '../assets/mountain-bike/arte-mountainbike-8.webp';
 import mtb9 from '../assets/mountain-bike/arte-mountainbike-9.webp';
 import mtbCover from '../assets/mountain-bike/capa-projeto-mountainbike.webp';
+import mtbCoverMobile from '../assets/mountain-bike/capa-projeto-mountainbike-mobile.webp';
 
 // Import Agronegócio 3x3 Grid and Cover images
 import agro1 from '../assets/agronegocio/arte-agronegócio-1.webp';
@@ -39,6 +41,7 @@ import agro7 from '../assets/agronegocio/arte-agronegócio-7.webp';
 import agro8 from '../assets/agronegocio/arte-agronegócio-8.webp';
 import agro9 from '../assets/agronegocio/arte-agronegócio-9.webp';
 import agroCover from '../assets/agronegocio/capa-agronegócio.webp';
+import agroCoverMobile from '../assets/agronegocio/capa-agronegócio-mobile.webp';
 
 // Unified 6 Projects Data (3 Social Media, 3 Web Design)
 const projectsData = [
@@ -58,6 +61,7 @@ const projectsData = [
     gridColors: ['#FF6B00', '#FF8C42', '#1a0d00', '#FF6B00', '#111111', '#FF8C42', '#1a0d00', '#FF6B00', '#FF8C42'],
     gridImages: [pet1, pet2, pet3, pet4, pet5, pet6, pet7, pet8, pet9],
     coverImage: petCover,
+    coverImageMobile: petCoverMobile,
     artId: 1
   },
   {
@@ -75,6 +79,7 @@ const projectsData = [
     gridColors: ['#FF5722', '#FF8A65', '#2E0F05', '#FF5722', '#111111', '#FF8A65', '#2E0F05', '#FF5722', '#FF8A65'],
     gridImages: [mtb1, mtb2, mtb3, mtb4, mtb5, mtb6, mtb7, mtb8, mtb9],
     coverImage: mtbCover,
+    coverImageMobile: mtbCoverMobile,
     artId: 2
   },
   {
@@ -92,6 +97,7 @@ const projectsData = [
     gridColors: ['#2E7D32', '#4CAF50', '#1B5E20', '#2E7D32', '#111111', '#4CAF50', '#1B5E20', '#2E7D32', '#4CAF50'],
     gridImages: [agro1, agro2, agro3, agro4, agro5, agro6, agro7, agro8, agro9],
     coverImage: agroCover,
+    coverImageMobile: agroCoverMobile,
     artId: 3
   },
   // 3 PROJECTS - WEBSITES
@@ -289,6 +295,8 @@ export default function PortfolioPage() {
                     {project.coverImage ? (
                       <img 
                         src={project.coverImage} 
+                        srcSet={project.coverImageMobile ? `${project.coverImageMobile} 600w, ${project.coverImage} 1200w` : undefined}
+                        sizes="(max-width: 820px) 100vw, 50vw"
                         alt={project.name} 
                         className="project-card-cover-image"
                         loading={index === 0 ? "eager" : "lazy"}

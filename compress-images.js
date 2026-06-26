@@ -29,11 +29,20 @@ async function compressAll() {
 
   for (const file of files) {
     const relativePath = path.relative(process.cwd(), file);
+    const fileName = path.basename(file).toLowerCase();
+    
+    // Skip already generated mobile versions
+    const isMobileCover = fileName.includes('capa') && fileName.includes('-mobile');
+    if (isMobileCover) {
+      console.log(`Pulando capa mobile já existente: ${relativePath}`);
+      continue;
+    }
+
     const statsBefore = fs.statSync(file);
     const sizeBefore = statsBefore.size;
 
     // Skip small files (under 100KB) to avoid degradation unless it's one of the covers
-    const isCover = path.basename(file).toLowerCase().includes('capa');
+    const isCover = fileName.includes('capa');
     if (sizeBefore < 100 * 1024 && !isCover) {
       console.log(`Pulando arquivo pequeno: ${relativePath} (${(sizeBefore / 1024).toFixed(1)} KB)`);
       continue;
@@ -77,6 +86,20 @@ async function compressAll() {
           console.log(`Otimizado: ${relativePath} | ${(sizeBefore / 1024 / 1024).toFixed(2)} MB -> ${(sizeAfter / 1024 / 1024).toFixed(2)} MB (${savingsPercent}% de redução) ${resized ? '[Redimensionado]' : ''}`);
         } else {
           console.log(`Mantido original (compressão não reduziu tamanho): ${relativePath}`);
+        }
+      }
+
+      // If it is a cover image, generate the mobile version (width: 600px)
+      if (isCover) {
+        try {
+          const mobilePath = file.replace(/\.webp$/i, '-mobile.webp');
+          const mobilePipeline = sharp(inputBuffer).resize({ width: 600, withoutEnlargement: true });
+          const mobileBuffer = await mobilePipeline.webp({ quality: 75, effort: 5 }).toBuffer();
+          fs.writeFileSync(mobilePath, mobileBuffer);
+          const mobileStats = fs.statSync(mobilePath);
+          console.log(`Gerada capa mobile: ${path.relative(process.cwd(), mobilePath)} (${(mobileStats.size / 1024).toFixed(1)} KB)`);
+        } catch (mErr) {
+          console.error(`Erro ao gerar versão mobile para ${relativePath}:`, mErr.message);
         }
       }
     } catch (err) {
