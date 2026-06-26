@@ -14,8 +14,6 @@ import pet6 from '../assets/petshop/arte-petshop-6.webp';
 import pet7 from '../assets/petshop/arte-petshop-7.webp';
 import pet8 from '../assets/petshop/arte-petshop-8.webp';
 import pet9 from '../assets/petshop/arte-petshop-9.webp';
-import petCover from '../assets/petshop/capa-projeto-petshop.webp';
-import petCoverMobile from '../assets/petshop/capa-projeto-petshop-mobile.webp';
 
 // Import Mountain Bike 3x3 Grid WebP images
 import mtb1 from '../assets/mountain-bike/arte-mountainbike-1.webp';
@@ -60,8 +58,8 @@ const projectsData = [
     longDescription: 'Desenvolvimento de uma linha editorial voltada para fortalecer a presença digital do petshop, combinando conteúdos institucionais, promocionais e informativos. O projeto teve como objetivo aumentar o engajamento, valorizar os serviços da marca e criar uma comunicação visual consistente por meio de criativos estratégicos e carrosséis de alto impacto.',
     gridColors: ['#FF6B00', '#FF8C42', '#1a0d00', '#FF6B00', '#111111', '#FF8C42', '#1a0d00', '#FF6B00', '#FF8C42'],
     gridImages: [pet1, pet2, pet3, pet4, pet5, pet6, pet7, pet8, pet9],
-    coverImage: petCover,
-    coverImageMobile: petCoverMobile,
+    coverImage: '/capa-projeto-petshop.webp',
+    coverImageMobile: '/capa-projeto-petshop-mobile.webp',
     artId: 1
   },
   {

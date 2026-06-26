@@ -98,6 +98,15 @@ async function compressAll() {
           fs.writeFileSync(mobilePath, mobileBuffer);
           const mobileStats = fs.statSync(mobilePath);
           console.log(`Gerada capa mobile: ${path.relative(process.cwd(), mobilePath)} (${(mobileStats.size / 1024).toFixed(1)} KB)`);
+
+          // Copy Petshop LCP covers to public directory for immediate index.html preload
+          if (fileName.includes('petshop')) {
+            const publicDestDesk = path.join(process.cwd(), 'public', 'capa-projeto-petshop.webp');
+            const publicDestMobile = path.join(process.cwd(), 'public', 'capa-projeto-petshop-mobile.webp');
+            fs.writeFileSync(publicDestDesk, buffer || inputBuffer);
+            fs.writeFileSync(publicDestMobile, mobileBuffer);
+            console.log(`Copiadas capas LCP petshop para a pasta public/ para preload no index.html`);
+          }
         } catch (mErr) {
           console.error(`Erro ao gerar versão mobile para ${relativePath}:`, mErr.message);
         }
