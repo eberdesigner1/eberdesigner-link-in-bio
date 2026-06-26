@@ -434,11 +434,13 @@ export default function PortfolioPage() {
                   <div className="social-grid-3x3">
                     {selectedProject.gridImages ? (
                       selectedProject.gridImages.map((imgSrc, index) => (
-                        <div 
+                        <img 
                           key={index} 
+                          src={imgSrc}
+                          alt={`Arte ${index + 1} de ${selectedProject.name}`}
                           className="grid-art-square clickable-art" 
-                          style={{ backgroundImage: `url(${imgSrc})` }}
                           onClick={() => setZoomedImage(imgSrc)}
+                          loading="lazy"
                         />
                       ))
                     ) : (

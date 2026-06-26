@@ -1,0 +1,90 @@
+import fs from 'fs';
+import path from 'path';
+import sharp from 'sharp';
+
+const assetsDir = path.join(process.cwd(), 'src', 'assets');
+
+// Recursively find files
+function getFiles(dir, files = []) {
+  if (!fs.existsSync(dir)) return files;
+  const list = fs.readdirSync(dir);
+  for (const file of list) {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+    if (stat.isDirectory()) {
+      getFiles(filePath, files);
+    } else {
+      const ext = path.extname(file).toLowerCase();
+      if (['.webp', '.png', '.jpg', '.jpeg'].includes(ext)) {
+        files.push(filePath);
+      }
+    }
+  }
+  return files;
+}
+
+async function compressAll() {
+  const files = getFiles(assetsDir);
+  console.log(`Encontrados ${files.length} arquivos de imagem para processamento.`);
+
+  for (const file of files) {
+    const relativePath = path.relative(process.cwd(), file);
+    const statsBefore = fs.statSync(file);
+    const sizeBefore = statsBefore.size;
+
+    // Skip small files (under 100KB) to avoid degradation unless it's one of the covers
+    const isCover = path.basename(file).toLowerCase().includes('capa');
+    if (sizeBefore < 100 * 1024 && !isCover) {
+      console.log(`Pulando arquivo pequeno: ${relativePath} (${(sizeBefore / 1024).toFixed(1)} KB)`);
+      continue;
+    }
+
+    try {
+      const inputBuffer = fs.readFileSync(file);
+      const image = sharp(inputBuffer);
+      const metadata = await image.metadata();
+
+      let pipeline = image;
+      let resized = false;
+
+      // Resize if dimensions are too large (e.g. wider than 1600px for covers, or 1000px for grid arts)
+      const maxWidth = isCover ? 1600 : 1000;
+      if (metadata.width && metadata.width > maxWidth) {
+        pipeline = pipeline.resize({ width: maxWidth, withoutEnlargement: true });
+        resized = true;
+      }
+
+      // Apply format-specific compression
+      const ext = path.extname(file).toLowerCase();
+      let buffer;
+      if (ext === '.webp') {
+        buffer = await pipeline.webp({ quality: 75, effort: 5 }).toBuffer();
+      } else if (ext === '.png') {
+        buffer = await pipeline.png({ compressionLevel: 9, palette: true }).toBuffer();
+      } else if (['.jpg', '.jpeg'].includes(ext)) {
+        buffer = await pipeline.jpeg({ quality: 75, mozjpeg: true }).toBuffer();
+      }
+
+      if (buffer) {
+        // Write the optimized image back to disk
+        fs.writeFileSync(file, buffer);
+        const statsAfter = fs.statSync(file);
+        const sizeAfter = statsAfter.size;
+        const savings = sizeBefore - sizeAfter;
+        
+        if (savings > 0) {
+          const savingsPercent = ((savings / sizeBefore) * 100).toFixed(1);
+          console.log(`Otimizado: ${relativePath} | ${(sizeBefore / 1024 / 1024).toFixed(2)} MB -> ${(sizeAfter / 1024 / 1024).toFixed(2)} MB (${savingsPercent}% de redução) ${resized ? '[Redimensionado]' : ''}`);
+        } else {
+          console.log(`Mantido original (compressão não reduziu tamanho): ${relativePath}`);
+        }
+      }
+    } catch (err) {
+      console.error(`Erro ao processar ${relativePath}:`, err.message);
+    }
+  }
+}
+
+compressAll().then(() => {
+  console.log('Otimização concluída!');
+}).catch(console.error);
