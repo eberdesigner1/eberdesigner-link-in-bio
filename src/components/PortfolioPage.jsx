@@ -291,15 +291,18 @@ export default function PortfolioPage() {
                     style={{ background: project.gradient }}
                   >
                     {project.coverImage ? (
-                      <img 
-                        src={project.coverImage} 
-                        srcSet={project.coverImageMobile ? `${project.coverImageMobile} 600w, ${project.coverImage} 1200w` : undefined}
-                        sizes="(max-width: 820px) 100vw, 50vw"
-                        alt={project.name} 
-                        className="project-card-cover-image"
-                        loading={index === 0 ? "eager" : "lazy"}
-                        fetchPriority={index === 0 ? "high" : "auto"}
-                      />
+                      <picture className="project-card-cover-picture">
+                        {project.coverImageMobile && (
+                          <source media="(max-width: 820px)" srcSet={project.coverImageMobile} />
+                        )}
+                        <img 
+                          src={project.coverImage} 
+                          alt={project.name} 
+                          className="project-card-cover-image"
+                          loading={index === 0 ? "eager" : "lazy"}
+                          fetchPriority={index === 0 ? "high" : "auto"}
+                        />
+                      </picture>
                     ) : (
                       <>
                         {project.type === 'social' && (
